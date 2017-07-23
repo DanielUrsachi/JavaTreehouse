@@ -8,8 +8,12 @@ public class Treet {
     private Date mCreationDate;
 
 
+    @Override
+    public String toString() {
+        return "Treet \"" + mDescription + "\" - @" + mAuthor;
+    }
 
-   public Treet(String author, String description, Date creationDate){
+    public Treet(String author, String description, Date creationDate){
        mAuthor = author;
        mDescription = description;
        mCreationDate = creationDate;

@@ -7,7 +7,7 @@ public class Example {
     public static void main(String[] args){
         Treet treet = new Treet(
                 "authorNameHere",
-                "some intresting description.",
+                "some intresting description with @symbol and a couple of #hash and #tags.",
                 new Date(1421849732000L)
         );
 
@@ -35,10 +35,17 @@ public class Example {
 
 
         //Save
-        System.out.println("Deserialization");
         Treets.save(treets);
-        for (Treet exampleTreet : treets){
+        //load
+        System.out.println("Deserialization");
+        Treet[] reloadedTreets = Treets.load();
+        for (Treet exampleTreet : reloadedTreets){
             System.out.println(exampleTreet);
         }
+
+        //Collection
+//        System.out.println("Collection using prints: ");
+//        Treet[] treets1 = Treet.load();
+
     }
 }

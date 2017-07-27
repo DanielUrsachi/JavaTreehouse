@@ -1,7 +1,7 @@
 import com.teamtreehouse.module.Song;
 import com.teamtreehouse.module.SongBook;
 
-public class Karaoke {
+public class Karaoke { //clasa principala
     public static void main(String[] argh){
         Song song = new Song(
                 "Michael Jackson",

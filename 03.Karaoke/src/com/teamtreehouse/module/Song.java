@@ -1,5 +1,9 @@
 package com.teamtreehouse.module;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class Song {
     private String mArtist;
     private String mTitle;
@@ -27,4 +31,6 @@ public class Song {
     public String toString() {
         return String.format("Song: " + mTitle + " by " + mArtist);
     }
+
+
 }

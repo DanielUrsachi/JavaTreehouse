@@ -2,6 +2,8 @@ import com.teamtreehouse.KaraokeMachine;
 import com.teamtreehouse.module.Song;
 import com.teamtreehouse.module.SongBook;
 
+import javax.sound.midi.Soundbank;
+
 public class Karaoke { //clasa principala
     public static void main(String[] argh){
 //        Song song = new Song(
@@ -14,8 +16,11 @@ public class Karaoke { //clasa principala
 //        System.out.println("There are " + songBook.getSongCount() + " songs");
 
         SongBook songBook = new SongBook();
+        songBook.importFrom("songs.txt");
         KaraokeMachine machine = new KaraokeMachine(songBook);
         machine.run();
+        System.out.println("Saving book . . . ");
+        songBook.exportTo("songs.txt");
 
     }
 

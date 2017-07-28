@@ -5,9 +5,10 @@ import java.util.List;
 import java.util.Map;
 
 public class Song {
-    private String mArtist;
-    private String mTitle;
-    private String mVideoUrl;
+    //schimbat nivelul de acces pentru folosirea in SongBook
+    protected String mArtist;
+    protected String mTitle;
+    protected String mVideoUrl;
 
     public Song(String artist, String title, String videoUrl){
         mArtist = artist;

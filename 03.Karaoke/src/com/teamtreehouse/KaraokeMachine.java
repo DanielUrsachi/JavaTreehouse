@@ -6,27 +6,27 @@ import com.teamtreehouse.module.SongBook;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
-public class KaraokeMachine { //pentru admin
+public class KaraokeMachine { //pentru afisare
     private SongBook mSongBook;
     private BufferedReader mReader;
     private Map<String, String> mMenu;
+    private Queue<Song> mSongQueue;
 
     public KaraokeMachine(SongBook songBook){
         mSongBook = songBook;
         mReader = new BufferedReader(new InputStreamReader(System.in));
         mMenu = new HashMap<>();
+        mSongQueue = new ArrayDeque<Song>();
         mMenu.put("add", "Add a new song to a song boook");
         mMenu.put("choose", "Choose a song to sing");
+        mMenu.put("play", "Play next song in the queue");
         mMenu.put("quit", "Give up. Exit the program");
     }
 
     private String promptAction() throws IOException {
-        System.out.println("There are " + mSongBook.getSongCount() + " songs");
+        System.out.println("\nThere are " + mSongBook.getSongCount() + " songs available, and " + mSongQueue.size() + " in the Queue");
         for (Map.Entry<String, String> option : mMenu.entrySet()){
             System.out.println(option.getKey() + " - " + option.getValue());
         }
@@ -46,10 +46,14 @@ public class KaraokeMachine { //pentru admin
                         mSongBook.addSong(song);
                         System.out.println(song + " is added");
                         break;
-                    case "choose":
+                    case "choose": // alege un element si il adauga in queue
                         String artist = promptArtist(); // printarea / alegerea artistilor
                         Song artistSong = promptSongForArtist(artist); // printarea / alegerea cintecului de acest artist
-                        System.out.println("Yout chose: " + artistSong); // afisarea alegerii
+                        mSongQueue.add(artistSong); // adauga in queu cite un element
+                        System.out.println("Yout choose: " + artistSong); // afisarea alegerii
+                        break;
+                    case "play":
+                        playNext();
                         break;
                     case "quit":
                         System.out.println("Thanks for playing!");
@@ -80,9 +84,9 @@ public class KaraokeMachine { //pentru admin
             System.out.println(counter + " )" + option);
             counter++;
         }
+        System.out.println("Your choice :  ");
         String optionAsString = mReader.readLine();
         int choice = Integer.parseInt(optionAsString.trim());
-        System.out.println("Your choice :  ");
         return choice - 1 ;
     }
     private String promptArtist() throws IOException { //pentru afisarea artistilor si alegerea unuia
@@ -94,10 +98,21 @@ public class KaraokeMachine { //pentru admin
     private Song promptSongForArtist(String artist) throws IOException {  // preluarea cintecelor unui artist
         List<Song> songs = mSongBook.getSongsForArtist(artist); //preluarea listei de songuri
         List<String> songTitles = new ArrayList<>();
+        System.out.println("Available songs for " + artist);
         for (Song song : songs){ //preluarea doar a denumirii in lista
             songTitles.add(song.getmTitle());
         }
         int index = promptForIndex(songTitles); // afisarea si alegerea
         return songs.get(index);
+    }
+
+    public void playNext(){ // scoate cite un element din queue si il afiseaza
+        Song song = mSongQueue.poll(); // extragem elementul din head
+        if (song == null){
+            System.out.println("Sorry there are no songs in Queue, please add one");
+        }
+        else {
+            System.out.println("Opent " + song.getmVideoUrl() + " to hear " + song.getmTitle() + " by " + song.getmArtist());
+        }
     }
 }

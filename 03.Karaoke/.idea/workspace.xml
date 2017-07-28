@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="969999b3-4cf3-4738-8f6a-8e95d532de83" name="Default" comment="queue">
+    <list default="true" id="969999b3-4cf3-4738-8f6a-8e95d532de83" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Karaoke.java" afterPath="$PROJECT_DIR$/src/Karaoke.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/teamtreehouse/KaraokeMachine.java" afterPath="$PROJECT_DIR$/src/com/teamtreehouse/KaraokeMachine.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/teamtreehouse/module/Song.java" afterPath="$PROJECT_DIR$/src/com/teamtreehouse/module/Song.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/teamtreehouse/module/SongBook.java" afterPath="$PROJECT_DIR$/src/com/teamtreehouse/module/SongBook.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -374,7 +370,7 @@
       <option name="presentableId" value="Default" />
       <updated>1501180933107</updated>
       <workItem from="1501180935901" duration="12756000" />
-      <workItem from="1501238788539" duration="5135000" />
+      <workItem from="1501238788539" duration="5255000" />
     </task>
     <task id="LOCAL-00001" summary="Structure of karaoke app">
       <created>1501181950810</created>
@@ -397,11 +393,18 @@
       <option name="project" value="LOCAL" />
       <updated>1501200611869</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="serialization / deserialization + alph sort">
+      <created>1501243960844</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1501243960844</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17891000" />
+    <option name="totallyTimeSpent" value="18011000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -455,7 +458,8 @@
     <MESSAGE value="KaraokeMachine template" />
     <MESSAGE value="adaugarea navigarii dupa artisti si cintece" />
     <MESSAGE value="queue" />
-    <option name="LAST_COMMIT_MESSAGE" value="queue" />
+    <MESSAGE value="serialization / deserialization + alph sort" />
+    <option name="LAST_COMMIT_MESSAGE" value="serialization / deserialization + alph sort" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

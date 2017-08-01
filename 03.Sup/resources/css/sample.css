@@ -1,0 +1,18 @@
+.root{
+    -fx-font-family: sans-serif;
+    -fx-font-size: 12px;
+    -fx-aligment: center;
+    -fx-vgap: 10px;
+    -fx-hgap: 10px;
+}
+.tittle{
+    -fx-font-size: 30px;
+    -fx-fill: aqua;
+}
+.text-field{
+    -fx-font-family: serif;
+}
+#firstName{
+    -fx-background-color: yellow;
+    -fx-font-family: fantasy;
+}

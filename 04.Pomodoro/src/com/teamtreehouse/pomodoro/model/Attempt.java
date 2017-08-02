@@ -30,4 +30,17 @@ public class Attempt { // main functional class
     public void tick() { // metoda accesata la fiecare frame (fiecare sec)
         mRemainingSeconds--;
     }
+
+    @Override
+    public String toString() { // afisarea
+        return "Attempt{" +
+                "Message='" + mMessage + '\'' +
+                ", RemainingSeconds=" + mRemainingSeconds +
+                ", Kind=" + mKind +
+                '}';
+    }
+
+    public void save() { // printarea mesajului
+        System.out.println("Saving : " + this);
+    }
 }

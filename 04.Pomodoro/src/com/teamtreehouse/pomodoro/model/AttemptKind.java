@@ -12,7 +12,7 @@ public enum AttemptKind { // enum for attempt
         mDisplayName = displayName;
     }
 
-    public int getmTotalSeconds() {
+    public int getTotalSeconds() {
         return mTotalSeconds;
     }
 

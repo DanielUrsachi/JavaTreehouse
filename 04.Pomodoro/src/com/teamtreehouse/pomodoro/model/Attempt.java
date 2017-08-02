@@ -8,7 +8,7 @@ public class Attempt { // main functional class
     public Attempt(String message, AttemptKind kind) {
         mMessage = message;
         mKind = kind;
-        mRemainingSeconds = kind.getmTotalSeconds();
+        mRemainingSeconds = kind.getTotalSeconds();
     }
 
     public String getMessage() {
@@ -25,5 +25,9 @@ public class Attempt { // main functional class
 
     public void setMessage(String message) {
         mMessage = message;
+    }
+
+    public void tick() { // metoda accesata la fiecare frame (fiecare sec)
+        mRemainingSeconds--;
     }
 }

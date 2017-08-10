@@ -1,0 +1,15 @@
+{{#partial "content"}}
+    <h1>Current Ideas</h1>
+    <ul>
+        {{#each ideas}} <!-- ideas fiind List, dar transmis ca obiect nedefinit -->
+            <li>{{title}}</li> <!-- vede aceasta variabila chiar daca este privata, din motivul ca avem getMethod, si handlebar-ul o recunoaste POJO = plain old java object syntax-->
+        {{/each}}
+    </ul>
+
+    <form action="/ideas" method="post"> <!-- form pentru adaugarea ideilor -->
+        <input type="text" placeholder="What's your idea?" name="title"/>
+        <button>Suggest!</button>
+    </form>
+{{/partial}}
+{{>base.hbs}}
+

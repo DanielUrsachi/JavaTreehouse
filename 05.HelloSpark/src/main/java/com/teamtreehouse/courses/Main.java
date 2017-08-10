@@ -16,11 +16,25 @@ public class Main { //gen de controller
         CourseIdeaDAO dao = new SimpleCourseIdeaDAO(); // interfetei ii atribuim derivata
         staticFileLocation("/public"); //cauta resursele din HTML din directoria initiala indicata
 
+        before(((request, response) -> { // daca nu are path, este pentru toate
+            if (request.cookie("username") != null){ // daca  are cookies cu username
+                request.attribute("username", request.cookie("username")); // cookie transformam in atribut!
+            }
+        }));
+
+        before("/ideas", ((request, response) -> { // metoda rulata inainte de oricare functe pentru pathul ideas
+            //TODO:csd - Send message about redirect ... soehow
+            if (request.attribute("username") == null){ // daca nu avem cookie
+                response.redirect("/"); //redirect la root directory
+                halt(); // break la oricare metoda in continuare (get/post)
+            }
+        }));
+
         get("/hello", (req, res) -> "Hello World"); //get http method din URI-ul: /hello + prin lambda transmite Hello World
 
         get("/", (req, res) -> { //pentru afisarea html-ului din hbs
             Map<String, String> model = new HashMap<>();
-            model.put("username", req.cookie("username")); // importam cookie la deskiderea html-page-ului
+            model.put("username", req.attribute("username")); // importam cookie la deskiderea html-page-ului
             return new ModelAndView(model, "index.hbs"); // returneaza file-ul html, dupa trimiterea model-ului
         }, new HandlebarsTemplateEngine()); // metoda necesara pentu asta
 
@@ -41,8 +55,7 @@ public class Main { //gen de controller
 
        post("/ideas", (request, response) -> { // adding an object idea
            String title = request.queryParams("title"); // cere field-ul cu idea
-           // TODO:csd - This username is tied to the cookie implementation
-           CourseIdea courseIdea = new CourseIdea(title, request.cookie("username")); // introduce field-ul cu ideea, si cere din cookie numele
+           CourseIdea courseIdea = new CourseIdea(title, request.attribute("username")); // introduce field-ul cu ideea, si cere din cookie numele
            dao.add(courseIdea); //adaugarea in lista de idei
            response.redirect("/ideas"); // redirect la ea insasi = refresh la pagina, pentru ca se duce la get
            return null;

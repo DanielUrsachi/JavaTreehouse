@@ -12,10 +12,10 @@ public class Main {
 
         get("/", (req, res) -> { //pentru afisarea html-ului din hbs
             Map<String, String> model = new HashMap<>();
-
-            return new ModelAndView(null, "index.hbs"); // returneaza file-ul html
-
+            model.put("username", req.cookie("username")); // importam cookie la deskiderea html-page-ului
+            return new ModelAndView(model, "index.hbs"); // returneaza file-ul html, dupa trimiterea model-ului
         }, new HandlebarsTemplateEngine()); // metoda necesara pentu asta
+
 
        post("/sign-in", (req, res) -> { // la metoda post
            Map<String, String> model = new HashMap<>();

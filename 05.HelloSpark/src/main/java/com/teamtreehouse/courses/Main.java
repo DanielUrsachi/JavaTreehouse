@@ -1,3 +1,7 @@
+package com.teamtreehouse.courses;
+
+import com.teamtreehouse.courses.model.CourseIdeaDAO;
+import com.teamtreehouse.courses.model.SimpleCourseIdeaDAO;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
@@ -6,8 +10,11 @@ import java.util.Map;
 
 import static spark.Spark.*;
 
-public class Main {
+public class Main { //gen de controller
     public static void main(String[] args) {
+        CourseIdeaDAO dao = new SimpleCourseIdeaDAO(); // interfetei ii atribuim derivata
+        staticFileLocation("/public"); //cauta resursele din HTML din directoria initiala indicata
+
         get("/hello", (req, res) -> "Hello World"); //get http method din URI-ul: /hello + prin lambda transmite Hello World
 
         get("/", (req, res) -> { //pentru afisarea html-ului din hbs

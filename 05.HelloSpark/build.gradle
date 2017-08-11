@@ -13,6 +13,7 @@ dependencies {
     compile "com.sparkjava:spark-core:2.6.0" // add to build.gradle (for Java users)
     compile 'ch.qos.logback:logback-classic:1.2.3' // pentru rezolvarea erorii "org.slf4j.impl.StaticLoggerBinder"
     compile 'com.sparkjava:spark-template-handlebars:2.5.5' // mustache template pentru handlebars
+    compile 'com.github.slugify:slugify:2.1.9' // mustache template pentru handlebars
 
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }

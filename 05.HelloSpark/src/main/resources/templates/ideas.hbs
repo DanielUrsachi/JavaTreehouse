@@ -2,7 +2,13 @@
     <h1>Current Ideas</h1>
     <ul>
         {{#each ideas}} <!-- ideas fiind List, dar transmis ca obiect nedefinit -->
-            <li>{{title}}</li> <!-- vede aceasta variabila chiar daca este privata, din motivul ca avem getMethod, si handlebar-ul o recunoaste POJO = plain old java object syntax-->
+
+                <li>
+                    <form action="/ideas/{{slug}}/vote" method="post"> <!--actiunea pentru vot, ce creeaza pagina noua cu denumirea slug-ului -->
+                        {{title}}<!-- vede aceasta variabila chiar daca este privata, din motivul ca avem getMethod, si handlebar-ul o recunoaste POJO = plain old java object syntax-->
+                        ( {{voterCount}} votes) <button>Vote</button>
+                    </form>
+                </li>
         {{/each}}
     </ul>
 

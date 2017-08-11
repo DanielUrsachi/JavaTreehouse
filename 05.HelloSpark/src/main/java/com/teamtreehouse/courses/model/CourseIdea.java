@@ -1,12 +1,26 @@
 package com.teamtreehouse.courses.model;
 
-public class CourseIdea { //obiectul principal
+import com.github.slugify.Slugify;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+public class CourseIdea { // obiectul principal
+
+
+    private String slug; // rol de identificator
     private String title;
     private String creator;
+    private Set<String> voters;
 
     public CourseIdea(String title, String creator) {
         this.title = title;
         this.creator = creator;
+        Slugify slugify = new Slugify();
+        slug = slugify.slugify(title); // genereaza identificator pentru fiecare cuvint
+        voters = new HashSet<>();
     }
 
     public String getTitle() {
@@ -15,6 +29,15 @@ public class CourseIdea { //obiectul principal
 
     public String getCreator() {
         return creator;
+    }
+
+    public String getSlug() { return slug; }
+
+    public boolean addVoter(String voterUserName){
+        return voters.add(voterUserName); // nu adauga daca se repeta
+    }
+    public int getVoterCount(){
+        return voters.size();
     }
 
     @Override

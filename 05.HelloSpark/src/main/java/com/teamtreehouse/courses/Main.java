@@ -60,6 +60,12 @@ public class Main { //gen de controller
            response.redirect("/ideas"); // redirect la ea insasi = refresh la pagina, pentru ca se duce la get
            return null;
        });
+       post("/ideas/:slug/vote", ((request, response) -> { // specificata metoda pentru vote si var prin slug
+           CourseIdea idea = dao.findBySlug(request.params("slug")); // extragerea elementului pentru vot dupa slug (dupa parametru)
+           idea.addVoter(request.attribute("username")); //adaugarea numelui votului din cookie in element
+           response.redirect("/ideas"); // redirect
+           return null;
+       }));
 
 
     }

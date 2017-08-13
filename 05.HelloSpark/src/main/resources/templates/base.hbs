@@ -10,6 +10,12 @@
         <title>{{#block "title"}}Welcome to Course Ideas{{/block}}</title> <!--tittle block -->
     </head>
     <body>
+    <div class="page">
+        {{#if flashMessage}}
+            <p id="flash-message">{{flashMessage}}</p>
+            <div>sdsad</div>
+        {{/if}}
+    </div>
 {{/block}}
 {{#block "content"}}{{/block}}<!--content block that is custom defined in every file -->
 {{#block "footer"}}<!--footer block -->

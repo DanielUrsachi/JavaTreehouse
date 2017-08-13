@@ -39,6 +39,9 @@ public class CourseIdea { // obiectul principal
     public int getVoterCount(){
         return voters.size();
     }
+    public List<String> getVoters(){
+        return new ArrayList<>(voters);
+    }
 
     @Override
     public boolean equals(Object o) {

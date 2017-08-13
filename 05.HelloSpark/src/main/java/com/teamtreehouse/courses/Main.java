@@ -66,6 +66,12 @@ public class Main { //gen de controller
            response.redirect("/ideas"); // redirect
            return null;
        }));
+       get("ideas/:slug", (request, response) -> { //pagina cu lista de Voters
+           Map<String, Object> model = new HashMap<>();
+           model.put("idea", dao.findBySlug(request.params("slug"))); // introducea key = idea si obiectul CourseIdea
+           return new ModelAndView(model,"idea.hbs");
+
+       }, new HandlebarsTemplateEngine());
 
 
     }

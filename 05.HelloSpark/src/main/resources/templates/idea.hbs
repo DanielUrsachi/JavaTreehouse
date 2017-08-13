@@ -1,0 +1,18 @@
+{{#partial "content"}}
+    <!-- toate lucreaza cu getVote din CourseIdea -->
+    <h1>{{idea.title}}</h1>
+    <h1>Voters {{idea.voterCount}}</h1>
+    <ul>
+        {{#each idea.voters}}
+            <li>{{this}}</li>
+        {{/each}}
+    </ul>
+    <form action="/ideas/{{idea.slug}}/vote" method="post"> <!--posibilitatea de a vota -->
+        <button>Vote</button>
+    </form>
+
+{{/partial}}
+{{#partial "title"}} <!-- setarea titlului -->
+    Course Idea - {{idea.title}}
+{{/partial}}
+{{>base.hbs}}

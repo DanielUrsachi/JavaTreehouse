@@ -26,4 +26,7 @@ public class GifRepository { // Creearea listei de obiecte Gif
         }
         return null;
     }
+    public List<Gif> getAllGifs(){
+        return ALL_GIFS;
+    }
 }

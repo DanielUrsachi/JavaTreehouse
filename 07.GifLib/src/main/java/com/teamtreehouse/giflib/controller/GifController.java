@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.xml.ws.RequestWrapper;
 import java.time.LocalDate;
+import java.util.List;
 
 @Controller // indic asociatia cu controller de spring ( acest controller e pentru toate paginile )
 public class GifController {
@@ -18,7 +19,9 @@ public class GifController {
     private GifRepository gifRepository; // in cazul in care nu-l initializam => nullPointerException, putem initializa in metoda sau prin AutoWeired
 
     @RequestMapping(value = "/") // pentru link dintre root directory si metoda
-    public String listGifs() { // metoda pentru afisarea tuturor GIF-urilor, ce handle URI-ul root
+    public String listGifs(ModelMap modelMap) { // metoda pentru afisarea tuturor GIF-urilor, ce handle URI-ul root
+        List<Gif> allGifs = gifRepository.getAllGifs();
+        modelMap.put("gifs", allGifs);
         return "home"; // html-ul inclus
 
     }
@@ -30,4 +33,5 @@ public class GifController {
         modelMap.put("gif", gif); // adaug in model, obiectul necesar
         return "gif-details";
     }
+
 }

@@ -4,12 +4,23 @@ import java.time.LocalDate;
 
 public class Gif { // POJO for Gifs
     private String name;
+    private int categoryId;
+
+    public int getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
+    }
+
     private LocalDate dateUploaded;
     private String username;
     private boolean favorite;
 
-    public Gif(String name, LocalDate dateUploaded, String username, boolean favorite) {
+    public Gif(String name, int categoryId, LocalDate dateUploaded, String username, boolean favorite) {
         this.name = name;
+        this.categoryId = categoryId;
         this.dateUploaded = dateUploaded;
         this.username = username;
         this.favorite = favorite;
